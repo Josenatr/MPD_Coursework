@@ -59,7 +59,11 @@ public class RSSModelClass implements Parcelable {
                 .replace("WB", "Westbound")
                 .replace("W/B", "Westbound")
                 .replace("TTL", "Temp. Traffic Lights")
-                .replace("MLC", "Mobile Lane Closure");
+                .replace("MLC", "Mobile Lane Closure")
+                .replace("Rnbt", "Roundabout")
+                .replace("Rbt", "Roundabout")
+                .replace("Rd", "Road")
+                .replace("Sth", "South");
         this.title = titleExpanded;
     }
 
