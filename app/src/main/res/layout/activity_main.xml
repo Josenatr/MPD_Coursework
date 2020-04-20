@@ -52,7 +52,10 @@
                 android:text="@string/current_incidents"
                 android:textColor="@color/White"
                 tools:ignore="RtlHardcoded" />
+
+
         </LinearLayout>
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"

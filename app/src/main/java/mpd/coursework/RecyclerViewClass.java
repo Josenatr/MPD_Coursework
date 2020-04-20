@@ -120,7 +120,8 @@ public class RecyclerViewClass extends RecyclerView.Adapter<RecyclerViewClass.Vi
             List<RSSModelClass> filteredList = new ArrayList<>();
 
             if (constraint == null || constraint.length() == 0 )
-            {filteredList.addAll(trafficDataFull);
+            {
+                filteredList.addAll(trafficDataFull);
             } else {
                 String filterPattern = constraint.toString().toLowerCase().trim();
                 for (RSSModelClass item : trafficDataFull){
@@ -144,6 +145,7 @@ public class RecyclerViewClass extends RecyclerView.Adapter<RecyclerViewClass.Vi
             return results;
         }
 
+
         @Override
         protected void publishResults(CharSequence constraint, FilterResults results) {
             trafficData.clear();
@@ -153,5 +155,4 @@ public class RecyclerViewClass extends RecyclerView.Adapter<RecyclerViewClass.Vi
             notifyDataSetChanged();
         }
     };
-
 }

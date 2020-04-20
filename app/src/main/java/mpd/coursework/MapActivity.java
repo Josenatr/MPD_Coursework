@@ -6,10 +6,8 @@ package mpd.coursework;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.location.Location;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -19,7 +17,6 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
@@ -41,11 +38,11 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
     }
 
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         Bundle extras = getIntent().getExtras();
         mMap = googleMap;
-
         String title = extras.getString("title");
         Double lat = extras.getDouble("lat");
         Double glong = extras.getDouble("geolong");
@@ -63,14 +60,11 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
         int width = getResources().getDisplayMetrics().widthPixels;
         int height = getResources().getDisplayMetrics().heightPixels;
-        int padding = (int) (width * 0.10); // offset from edges of the map 10% of screen
-
+        int padding = (int) (width * 0.10);
         CameraUpdate cu = CameraUpdateFactory.newLatLngBounds(bounds, width, height, padding);
 
         mMap.animateCamera(cu);
 
-
-        //mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(mapPos1, 14));
     }
 
 

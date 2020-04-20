@@ -17,11 +17,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
-
 import android.widget.SearchView;
 import android.widget.SearchView.OnQueryTextListener;
 
 import java.util.ArrayList;
+
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, RecyclerViewClass.ItemClickListener {
@@ -31,11 +31,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button currentIncidentsButton;
     private RecyclerView recyclerView;
     private RecyclerViewClass recyclerViewClass;
-    private ArrayList<RSSModelClass> rssModelClass;
     private RSSModelClass _rssModelClass;
-    private Parcelable mListState;
 
-    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,9 +56,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         currentIncidentsButton = (Button) findViewById(R.id.currentIncidentsButton);
         currentIncidentsButton.setOnClickListener(this);
 
+
         if (savedInstanceState != null) {
-            mListState = savedInstanceState.getParcelable("rssModelClass_state");
-            rssModelClass = savedInstanceState.getParcelableArrayList("rssModelClass");
+            Parcelable mListState = savedInstanceState.getParcelable("rssModelClass_state");
+            ArrayList<RSSModelClass> rssModelClass = savedInstanceState.getParcelableArrayList("rssModelClass");
             }
         }
 
@@ -83,7 +81,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             default:
                 new AsyncTaskClass(recyclerViewClass,  BuildConfig.PLANNED_ROADWORKS).execute();
                 break;
+
+
         }
+
     }
 
     @Override
@@ -91,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.options, menu);
         MenuItem searchItem = menu.findItem(R.id.action_search);
-        SearchView searchView = (SearchView) searchItem.getActionView();
+        final SearchView searchView = (SearchView) searchItem.getActionView();
 
         searchView.setOnQueryTextListener(new OnQueryTextListener() {
             @Override
@@ -121,4 +122,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mpd.putExtra("rssModelClass", recyclerViewClass.getItem((position)));
         startActivity(mpd);
     }
+
 }
