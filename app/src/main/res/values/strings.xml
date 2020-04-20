@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">MPD Coursework</string>
+    <string name="google_map_api_key">AIzaSyCbq3j5SYCkGkEYIcHy4vykNSbvmw8HLtM</string>
+    <string name="refresh_data">Refresh Data</string>
+    <string name="help">Help</string>
+    <string name="maps">Maps</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="planned_roadworks">Planned Roadworks</string>
+    <string name="current_roadworks">Current Roadworks</string>
+    <string name="current_incidents">Current Incidents</string>
+    <string name="search">Search</string>
+</resources>
