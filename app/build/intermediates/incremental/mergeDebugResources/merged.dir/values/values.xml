@@ -494,6 +494,11 @@
     <integer name="config_tooltipAnimTime">150</integer>
     <integer name="google_play_services_version">12451000</integer>
     <integer name="status_bar_notification_info_maxnum">999</integer>
+    <string name="_1_day">1 Day</string>
+    <string name="_1_week">1 Week</string>
+    <string name="_2_days">2 Days</string>
+    <string name="_2_weeks_or_more">2 Weeks or More</string>
+    <string name="_3_to_6_days">3 to 6 Days</string>
     <string name="abc_action_bar_home_description">Navigate home</string>
     <string name="abc_action_bar_up_description">Navigate up</string>
     <string name="abc_action_menu_overflow_description">More options</string>
@@ -556,6 +561,8 @@
     <string name="current_roadworks">Current Roadworks</string>
     <string name="google_map_api_key">AIzaSyCbq3j5SYCkGkEYIcHy4vykNSbvmw8HLtM</string>
     <string name="help">Help</string>
+    <string name="incident_length_colour_key">Incident Length Colour Key</string>
+    <string name="less_than_1_day">Less than 1 Day</string>
     <string name="maps">Maps</string>
     <string name="planned_roadworks">Planned Roadworks</string>
     <string name="refresh_data">Refresh Data</string>

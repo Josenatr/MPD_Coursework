@@ -9,4 +9,11 @@
     <string name="current_roadworks">Current Roadworks</string>
     <string name="current_incidents">Current Incidents</string>
     <string name="search">Search</string>
+    <string name="_1_week">1 Week</string>
+    <string name="_2_weeks_or_more">2 Weeks or More</string>
+    <string name="_3_to_6_days">3 to 6 Days</string>
+    <string name="_2_days">2 Days</string>
+    <string name="_1_day">1 Day</string>
+    <string name="less_than_1_day">Less than 1 Day</string>
+    <string name="incident_length_colour_key">Incident Length Colour Key</string>
 </resources>

@@ -53,11 +53,13 @@ public class RecyclerViewClass extends RecyclerView.Adapter<RecyclerViewClass.Vi
             public void onClick(View v) {
                 Intent intent = new Intent();
                 String title = rssModelClass.getTitle();
+                String desc = rssModelClass.getDescription();
                 Double[] coordinates = rssModelClass.getLatLng();
                 Double lat = coordinates[0];
                 Double lng = coordinates[1];
                 Intent mpd = new Intent(context.getApplicationContext(), MapActivity.class);
                 mpd.putExtra("title", title);
+                mpd.putExtra("desc", desc);
                 mpd.putExtra("lat", lat);
                 mpd.putExtra("geolong", lng);
                 mpd.putExtra("rssModelClass", getItem((position)));

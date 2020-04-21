@@ -42,44 +42,44 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/PaleTurquoise"
-                android:text="Current Incidents"
+                android:text="@string/current_incidents"
                 android:textColor="@color/White" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Incident Length Colour Key"
+                android:text="@string/incident_length_colour_key"
                 android:textAlignment="center" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Less than 1 Day"
+                android:text="@string/less_than_1_day"
                 android:textColor="#00FF06"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="1 Day"
+                android:text="@string/_1_day"
                 android:textColor="#F1FF14"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="2 Days"
+                android:text="@string/_2_days"
                 android:textColor="#FFBA14"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="3 to 6 Days"
+                android:text="@string/_3_to_6_days"
                 android:textColor="#FF8114"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="1 Week"
+                android:text="@string/_1_week"
                 android:textColor="#FF3F14"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="2 Weeks or More"
+                android:text="@string/_2_weeks_or_more"
                 android:textColor="#000000"/>
         </LinearLayout>
 
