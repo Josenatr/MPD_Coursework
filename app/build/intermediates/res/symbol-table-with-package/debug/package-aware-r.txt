@@ -1145,7 +1145,6 @@ string abc_searchview_description_voice
 string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
-string app_name
 string common_google_play_services_enable_button
 string common_google_play_services_enable_text
 string common_google_play_services_enable_title
@@ -1170,6 +1169,7 @@ string google_map_api_key
 string help
 string incident_length_colour_key
 string less_than_1_day
+string map_type
 string maps
 string planned_roadworks
 string refresh_data
@@ -1177,6 +1177,8 @@ string search
 string search_menu_title
 string status_bar_notification_info_overflow
 string title_activity_maps
+string zoom_in
+string zoom_out
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog

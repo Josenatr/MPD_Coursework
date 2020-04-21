@@ -27,12 +27,10 @@ public class RSSModelClass implements Parcelable {
     private String endDate = "";
     private long duration;
 
-    public DateClass dateClass;
 
     public RSSModelClass() {
 
         this.title = "UNDEFINED";
-        dateClass = new DateClass();
     }
 
     public RSSModelClass(String title, String description, String link, String geoPoint, String pubDate){
@@ -150,8 +148,8 @@ public class RSSModelClass implements Parcelable {
                     this.description = descriptionWithoutDates;
                 }
                 this.duration = duration;
-                this.startDate = "Start Date: " + dateClass.convertDate(stringParts[0]);
-                this.endDate = "End Date: " + dateClass.convertDate(stringParts[1]);
+                this.startDate = "Start Date: " + getNumericalDate(startDate);
+                this.endDate = "End Date: " + getNumericalDate(endDate);
             }
             else
                 {
@@ -200,12 +198,23 @@ public class RSSModelClass implements Parcelable {
             newStartDate = sdf.parse(startDate);
             newEndDate = sdf.parse(endDate);
 
+
+
         } catch (ParseException e){
             e.printStackTrace();
         }
 
         return new Date[]{newStartDate, newEndDate};
     };
+
+    public String getNumericalDate(Date dt)
+    {
+        SimpleDateFormat simpleDate =  new SimpleDateFormat("dd/MM/yyyy");
+
+        String strDt = simpleDate.format(dt);
+
+        return strDt;
+    }
 
     private long getDuration (Date[] dates){
         Date startDate = dates[0];

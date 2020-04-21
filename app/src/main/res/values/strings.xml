@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">MPD Coursework</string>
     <string name="google_map_api_key">AIzaSyCbq3j5SYCkGkEYIcHy4vykNSbvmw8HLtM</string>
     <string name="refresh_data">Refresh Data</string>
     <string name="help">Help</string>
@@ -16,4 +15,7 @@
     <string name="_1_day">1 Day</string>
     <string name="less_than_1_day">Less than 1 Day</string>
     <string name="incident_length_colour_key">Incident Length Colour Key</string>
+    <string name="zoom_out">Zoom Out</string>
+    <string name="zoom_in">Zoom In</string>
+    <string name="map_type">Map Type</string>
 </resources>

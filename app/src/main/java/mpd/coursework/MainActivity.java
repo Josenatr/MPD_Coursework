@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private RecyclerView recyclerView;
     private RecyclerViewClass recyclerViewClass;
     private RSSModelClass _rssModelClass;
+    private Boolean buttonPressed = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,14 +69,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.plannedRoadworksButton:
                 new AsyncTaskClass(recyclerViewClass,  BuildConfig.PLANNED_ROADWORKS).execute();
+                buttonPressed = true;
                 break;
 
             case R.id.currentRoadworksButton:
                 new AsyncTaskClass(recyclerViewClass, BuildConfig.CURRENT_ROADWORKS).execute();
+                buttonPressed = true;
                 break;
 
             case R.id.currentIncidentsButton:
                 new AsyncTaskClass(recyclerViewClass, BuildConfig.CURRENT_INCIDENTS).execute();
+                buttonPressed = true;
                 break;
 
             default:
@@ -102,7 +106,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                recyclerViewClass.getFilter().filter(newText);
+                if(buttonPressed == true) {
+                    recyclerViewClass.getFilter().filter(newText);
+                }
                 return false;
             }
         });

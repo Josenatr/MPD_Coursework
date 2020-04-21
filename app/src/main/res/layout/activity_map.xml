@@ -19,14 +19,14 @@
     <Button
         android:id="@+id/mapTypeButton"
         android:layout_width="wrap_content"
-        android:layout_height="35dp"
+        android:layout_height="35sp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginTop="300sp"
         android:background="@color/Teal"
         android:textColor="@color/White"
         android:onClick="ChangeType"
-        android:padding="8dp"
+        android:padding="8sp"
         android:text="Map Type" />
 
     <Button
@@ -34,22 +34,22 @@
         android:layout_width="wrap_content"
         android:layout_height="35dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="340dp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginTop="340sp"
         android:background="@color/SkyBlue"
         android:textColor="@color/White"
         android:onClick="onZoom"
-        android:padding="8dp"
+        android:padding="8sp"
         android:text="Zoom In" />
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="35dp"
+        android:layout_height="35sp"
         android:layout_gravity="center_horizontal"
         android:text = "Zoom Out"
-        android:layout_marginTop="380dp"
-        android:layout_marginLeft="10dp"
-        android:padding="8dp"
+        android:layout_marginTop="380sp"
+        android:layout_marginLeft="10sp"
+        android:padding="8sp"
         android:background="@color/PaleTurquoise"
         android:textColor="@color/White"
         android:onClick="onZoom"
