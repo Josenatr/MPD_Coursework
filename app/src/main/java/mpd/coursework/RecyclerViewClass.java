@@ -139,6 +139,12 @@ public class RecyclerViewClass extends RecyclerView.Adapter<RecyclerViewClass.Vi
                     else if (item.getDescription().toLowerCase().contains(filterPattern)){
                         filteredList.add(item);
                     }
+                    else if (item.getStartDate().toLowerCase().contains(filterPattern)){
+                        filteredList.add(item);
+                    }
+                    else if (item.getEndDate().toLowerCase().contains(filterPattern)){
+                        filteredList.add(item);
+                    }
                 }
             }
             FilterResults results = new FilterResults();
