@@ -127,13 +127,13 @@ public class RecyclerViewClass extends RecyclerView.Adapter<RecyclerViewClass.Vi
             } else {
                 String filterPattern = constraint.toString().toLowerCase().trim();
                 for (RSSModelClass item : trafficDataFull){
+                    for (String dates: item.getDatesBetween())
+                    {
+                        if(dates.contains(filterPattern)){
+                            filteredList.add(item);
+                        }
+                    }
                     if (item.getTitle().toLowerCase().contains(filterPattern)){
-                        filteredList.add(item);
-                    }
-                    else if (item.getStartDate().toLowerCase().contains(filterPattern)){
-                        filteredList.add(item);
-                    }
-                    else if (item.getEndDate().toLowerCase().contains(filterPattern)){
                         filteredList.add(item);
                     }
                     else if (item.getDescription().toLowerCase().contains(filterPattern)){

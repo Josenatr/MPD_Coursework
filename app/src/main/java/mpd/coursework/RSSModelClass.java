@@ -11,11 +11,16 @@ import androidx.annotation.NonNull;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 public class RSSModelClass implements Parcelable {
+    private Date newStartDate;
+    private Date newEndDate;
     private String title = "";
     private String description = "";
     private String link = "";
@@ -26,7 +31,6 @@ public class RSSModelClass implements Parcelable {
     private String startDate = "";
     private String endDate = "";
     private long duration;
-
 
     public RSSModelClass() {
 
@@ -178,8 +182,7 @@ public class RSSModelClass implements Parcelable {
 
 
     private Date[] getDates(String[] parts){
-        Date newStartDate = null;
-        Date newEndDate = null;
+
 
         try{
             //string dates
@@ -205,9 +208,42 @@ public class RSSModelClass implements Parcelable {
         }
 
         return new Date[]{newStartDate, newEndDate};
-    };
+    }
 
-    public String getNumericalDate(Date dt)
+    public  Date getNewEndDate() {
+        return newEndDate;
+    }
+
+    public Date getNewStartDate() {
+        return newStartDate;
+    }
+
+    public  List<String> getDatesBetween()
+    {
+        ArrayList<Date> dates = new ArrayList<Date>();
+
+
+        Calendar cal1 = Calendar.getInstance();
+        cal1.setTime(getNewStartDate());
+
+
+        Calendar cal2 = Calendar.getInstance();
+        cal2.setTime(getNewEndDate());
+
+        while(!cal1.after(cal2))
+        {
+            dates.add(cal1.getTime());
+            cal1.add(Calendar.DATE, 1);
+        }
+        ArrayList<String> strDates = new ArrayList<>();
+        for (Date date : dates){
+            String dateString = getNumericalDate(date);
+            strDates.add(dateString);
+        }
+        return strDates;
+    }
+
+    public static String getNumericalDate(Date dt)
     {
         SimpleDateFormat simpleDate =  new SimpleDateFormat("dd/MM/yyyy");
 
