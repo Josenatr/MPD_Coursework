@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.SearchView;
 import android.widget.SearchView.OnQueryTextListener;
 
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button currentRoadworksButton;
     private Button currentIncidentsButton;
     private RecyclerView recyclerView;
+    private ProgressBar progBar;
     private RecyclerViewClass recyclerViewClass;
     private RSSModelClass _rssModelClass;
     private Boolean buttonPressed = false;
@@ -57,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         currentIncidentsButton = (Button) findViewById(R.id.currentIncidentsButton);
         currentIncidentsButton.setOnClickListener(this);
 
+        progBar = findViewById(R.id.progress_bar);
 
         if (savedInstanceState != null) {
             Parcelable mListState = savedInstanceState.getParcelable("rssModelClass_state");
@@ -68,22 +71,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (aview.getId()) {
 
             case R.id.plannedRoadworksButton:
-                new AsyncTaskClass(recyclerViewClass,  BuildConfig.PLANNED_ROADWORKS).execute();
+                new AsyncTaskClass(recyclerViewClass, progBar ,BuildConfig.PLANNED_ROADWORKS).execute();
                 buttonPressed = true;
                 break;
 
             case R.id.currentRoadworksButton:
-                new AsyncTaskClass(recyclerViewClass, BuildConfig.CURRENT_ROADWORKS).execute();
+                new AsyncTaskClass(recyclerViewClass, progBar , BuildConfig.CURRENT_ROADWORKS).execute();
                 buttonPressed = true;
                 break;
 
             case R.id.currentIncidentsButton:
-                new AsyncTaskClass(recyclerViewClass, BuildConfig.CURRENT_INCIDENTS).execute();
+                new AsyncTaskClass(recyclerViewClass, progBar , BuildConfig.CURRENT_INCIDENTS).execute();
                 buttonPressed = true;
                 break;
 
             default:
-                new AsyncTaskClass(recyclerViewClass,  BuildConfig.PLANNED_ROADWORKS).execute();
+                new AsyncTaskClass(recyclerViewClass, progBar ,  BuildConfig.PLANNED_ROADWORKS).execute();
                 break;
 
 

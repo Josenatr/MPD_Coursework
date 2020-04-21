@@ -5,6 +5,8 @@ package mpd.coursework;
 */
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -16,10 +18,12 @@ import java.util.List;
 public class AsyncTaskClass extends AsyncTask<Void, Integer, List<RSSModelClass>> {
     private RecyclerViewClass recyclerViewClass;
     private String link;
+    private ProgressBar progBar;
 
-    public AsyncTaskClass(RecyclerViewClass recyclerViewClass, String link) {
+    public AsyncTaskClass(RecyclerViewClass recyclerViewClass, ProgressBar progBar, String link) {
         super();
         this.link = link;
+        this.progBar = progBar;
         this.recyclerViewClass = recyclerViewClass;
     }
 
@@ -47,10 +51,16 @@ public class AsyncTaskClass extends AsyncTask<Void, Integer, List<RSSModelClass>
     }
 
     @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+        progBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
     protected void onPostExecute(List<RSSModelClass> result) {
         super.onPostExecute(result);
         this.recyclerViewClass.setRecyclerViewData(result);
         this.recyclerViewClass.notifyDataSetChanged();
-        System.out.println(result);
+        progBar.setVisibility(View.GONE);
     }
 }

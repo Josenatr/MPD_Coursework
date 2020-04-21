@@ -978,10 +978,12 @@ id parent
 id parentPanel
 id percent
 id plannedRoadworksButton
+id progress_bar
 id progress_circular
 id progress_horizontal
 id radio
 id recyclerView
+id recyclerview
 id right
 id right_icon
 id right_side
