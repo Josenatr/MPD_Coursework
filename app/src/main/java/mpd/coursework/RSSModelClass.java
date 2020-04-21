@@ -3,6 +3,7 @@ package mpd.coursework;
  Name                 Adam Hosie
  Student ID           S1624519
 */
+import android.annotation.SuppressLint;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -104,17 +105,9 @@ public class RSSModelClass implements Parcelable {
         this.author = author;
     }
 
-    public String getStartDate() {
-        //return "Start Date: " + dateClass.convertDate(startDate);
-        return startDate;
-    }
+    public String getStartDate() { return startDate; }
 
-    public String getEndDate() {
-
-        //return "End Date: " + dateClass.convertDate(endDate);
-        return endDate;
-
-    }
+    public String getEndDate() { return endDate; }
 
     public void setComments(String comments) {
         this.comments = comments;
@@ -125,7 +118,6 @@ public class RSSModelClass implements Parcelable {
     public void setDuration(long dur){ this.duration = dur;}
 
     public void setPubDate(String nextText) {
-        System.out.println("Parsing date");
         this.pubDate = pubDate;
 
     }
@@ -182,22 +174,17 @@ public class RSSModelClass implements Parcelable {
 
 
     private Date[] getDates(String[] parts){
-
-
         try{
-            //string dates
-            String sDate = parts[0].substring(12);
-            String eDate = parts[1].substring(10);
+            String start = parts[0].substring(12);
+            String end = parts[1].substring(10);
 
-            //first format
             SimpleDateFormat sdf = new SimpleDateFormat("EEE, d MMMMM yyyy - HH:mm", Locale.ENGLISH);
-            Date sd = sdf.parse(sDate);
-            Date ed = sdf.parse(eDate);
+            Date s = sdf.parse(start);
+            Date e = sdf.parse(end);
 
-            //reformat
-            sdf.applyPattern("dd/MM/yy HH:mm");
-            String startDate = sdf.format(sd);
-            String endDate = sdf.format(ed);
+            sdf.applyPattern("dd/MM/yyyy");
+            String startDate = sdf.format(s);
+            String endDate = sdf.format(e);
             newStartDate = sdf.parse(startDate);
             newEndDate = sdf.parse(endDate);
 
@@ -210,15 +197,15 @@ public class RSSModelClass implements Parcelable {
         return new Date[]{newStartDate, newEndDate};
     }
 
-    public  Date getNewEndDate() {
+    private Date getNewEndDate() {
         return newEndDate;
     }
 
-    public Date getNewStartDate() {
+    private Date getNewStartDate() {
         return newStartDate;
     }
 
-    public  List<String> getDatesBetween()
+    List<String> getDatesBetween()
     {
         ArrayList<Date> dates = new ArrayList<Date>();
 
@@ -245,7 +232,7 @@ public class RSSModelClass implements Parcelable {
 
     public static String getNumericalDate(Date dt)
     {
-        SimpleDateFormat simpleDate =  new SimpleDateFormat("dd/MM/yyyy");
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat simpleDate =  new SimpleDateFormat("dd/MM/yyyy");
 
         String strDt = simpleDate.format(dt);
 
@@ -256,9 +243,7 @@ public class RSSModelClass implements Parcelable {
         Date startDate = dates[0];
         Date endDate = dates[1];
         long diffInMil = Math.abs(endDate.getTime() - startDate.getTime());
-        long diff = TimeUnit.HOURS.convert(diffInMil, TimeUnit.MILLISECONDS);
-
-        return diff;
+        return TimeUnit.HOURS.convert(diffInMil, TimeUnit.MILLISECONDS);
     }
 
     public String calcColour(Long d){
